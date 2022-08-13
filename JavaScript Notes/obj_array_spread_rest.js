@@ -20,7 +20,7 @@ for (let hobby of hobbies) {
   console.log(hobby);
 }
 
-// console.log(hobbies.map(hoppy => 'Hoppy: ' + hobby));
+console.log(hobbies.map(hobby => 'Hobby: ' + hobby));
 // add a new element to the end of the array
 hobbies.push('Programming');
 console.log(hobbies);
