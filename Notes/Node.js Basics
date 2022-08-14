@@ -35,7 +35,7 @@ the "fs" sends to worker pool
 
 # Section 2 Module Summary
 How the Web Works
-- client, request, server, response, client
+- client, request, server, response, client (a loop)
 Program Lifecycle & Event Loop
 - Node.js runs non-blocking JS code and uses an event-driven code for runnijng your logic
 - a Node program exits as soon as there is no more work to do
