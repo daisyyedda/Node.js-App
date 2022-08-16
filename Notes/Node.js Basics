@@ -62,3 +62,22 @@ we can install 3rd party packages via npm
 - syntax errors (type, forget a closing brace, etc), which should be automatically thrown when you run your project
 - runtime errors (not typos but code may be broken when you run)
 - logical errors (never see an error message, just doesnt work the way it should)
+
+# Section 3 Module Summmary
+1. npm
+- npm stands for "Node Package Manager" and it allows you to manage your Node project and its dependencies
+- you can initialize a project with npn init
+- npm scripts can be defined in the package.json to give you "shortcuts" to common tasks/commands
+2. 3rd Party Packages
+- Node projects typically dont just use core modules and custom code but also third-party packages
+- you install them via npm
+- you can differentiate between productiokn dependencies (--save), development dependencies (--save-dev) and global dependencies (-g)
+3. Types of Errors
+- syntax, runtime, and logical errors can break your app
+- syntax and runtime errors throw (helpful) error messages (with line numbers)
+- logical errors can be fixed with testing and the help of the debugger
+4. Debugging
+- use the VS Code Node debugger to step into your code and go through it step by step
+- analyze variable values at runtime
+- look into (and manipulate) variables at runtime
+- set breakpoints cleverly (i.e. respect the async/event-driven nature)
