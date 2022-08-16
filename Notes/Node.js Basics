@@ -53,3 +53,7 @@ Node.js & Core Modules
 The Node Module System
 - import via require('./path-to-file') for custom files or require('module') for core & third party modules
 - export via module.exports or just exports (for multiple exports)
+
+npm = node package manager
+always put double quotation
+we can install 3rd party packages via npm
