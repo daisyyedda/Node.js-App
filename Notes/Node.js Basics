@@ -57,3 +57,8 @@ The Node Module System
 npm = node package manager
 always put double quotation
 we can install 3rd party packages via npm
+
+# Types of Errors
+- syntax errors (type, forget a closing brace, etc), which should be automatically thrown when you run your project
+- runtime errors (not typos but code may be broken when you run)
+- logical errors (never see an error message, just doesnt work the way it should)

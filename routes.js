@@ -7,9 +7,11 @@ const requestHanlder = (req, res) => {
   if (url === '/') {
     res.write('<html>');
     res.write('<head><title>My First Page</title><head>');
-    res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>');
+    res.write(
+      '<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>'
+      );
     res.write('</html>');
-    return res.end(); 
+    return res.end();
   }
 
   if (url === '/message' && method === 'POST') {
@@ -23,7 +25,7 @@ const requestHanlder = (req, res) => {
     // an event listener
     return req.on('end', () => {
       const parsedBody = Buffer.concat(body).toString();
-      const message = parsedBody.split('=')[1];
+      const message = parsedBody.split('=')[1]; // message undefined because code stops at this line
       fs.writeFile('message.txt', message, err => {
         // another event listener
         // this code would not get blocked
