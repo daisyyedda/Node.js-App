@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "name": "assignment-2",
+  "version": "1.0.0",
+  "main": "assign2.js",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon assign2.js",
+    "start-server": "nodemon assign2.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
