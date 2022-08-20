@@ -23,6 +23,7 @@ app.use((req, res, next) => {
   User.findByPk(1)
     .then(user => {
       req.user = user;
+      next();
     })
     .catch(err => console.log(err));
 });
@@ -36,9 +37,11 @@ Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 User.hasMany(Product);
 
 sequelize
+  // .sync({ force: true })
   .sync()
   .then(result => {
     return User.findByPk(1);
+    // console.log(result);
   })
   .then(user => {
     if (!user) {
@@ -47,7 +50,7 @@ sequelize
     return user;
   })
   .then(user => {
-    // console.log(user);
+    console.log(user);
     app.listen(3010);
   })
   .catch(err => {
