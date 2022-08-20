@@ -37,7 +37,7 @@ module.exports = class Cart {
       });
     });
   }
-
+  
   static deleleProduct(id, productPrice) {
     fs.readFile(p, (err, fileContent) => {
       if (err) {
