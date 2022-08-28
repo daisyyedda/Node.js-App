@@ -1,14 +1,15 @@
 const bcrypt = require('bcryptjs');
-const nodemailer = require('nodemailer');
-const sendgridTransport = require('nodemailer-sendgrid-transport');
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'daisyyedda@gmail.com',
+    pass: 'sqqqtcdpjinkcyvr'
+  }
+});
 
 const User = require('../models/user');
-
-const transporter = nodemailer.createTransport(sendgridTransport({
-  auth: {
-    api_key: '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'
-  }
-}));
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -92,11 +93,19 @@ exports.postSignup = (req, res, next) => {
         })
         .then(result => {
           res.redirect('/login');
-          return transporter.sendMail({
+          var mailOptions = {
+            from: 'daisyyedda@gmail.com',
             to: email,
-            from: 'shop@node-complete.com',
             subject: 'Signup succeeded!',
-            html: '<h1>You successfully signed up!</h1>'
+            text: 'You successfully signed up!'
+          };
+          return transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log('Error sending confirmation emails.');
+              console.log(error);
+            } else {
+              console.log('Signup confirmation email sent successfully!');
+            }
           }); 
         })
         .catch(err => {
