@@ -82,7 +82,31 @@ module.exports = mongoose.model('User', userSchema);
 //   }
 
 //   addToCart(product) {
+//     const cartProductIndex = this.cart.items.findIndex(cp => {
+//       return cp.productId.toString() === product._id.toString();
+//     });
+//     let newQuantity = 1;
+//     const updatedCartItems = [...this.cart.items];
 
+//     if (cartProductIndex >= 0) {
+//       newQuantity = this.cart.items[cartProductIndex].quantity + 1;
+//       updatedCartItems[cartProductIndex].quantity = newQuantity;
+//     } else {
+//       updatedCartItems.push({
+//         productId: new ObjectId(product._id),
+//         quantity: newQuantity
+//       });
+//     }
+//     const updatedCart = {
+//       items: updatedCartItems
+//     };
+//     const db = getDb();
+//     return db
+//       .collection('users')
+//       .updateOne(
+//         { _id: new ObjectId(this._id) },
+//         { $set: { cart: updatedCart } }
+//       );
 //   }
 
 //   getCart() {
@@ -115,7 +139,7 @@ module.exports = mongoose.model('User', userSchema);
 //       .collection('users')
 //       .updateOne(
 //         { _id: new ObjectId(this._id) },
-//         { $set: { cart: {items: updatedCartItems} } }
+//         { $set: { cart: { items: updatedCartItems } } }
 //       );
 //   }
 
@@ -127,31 +151,31 @@ module.exports = mongoose.model('User', userSchema);
 //           items: products,
 //           user: {
 //             _id: new ObjectId(this._id),
-//             name: this.name,
+//             name: this.name
 //           }
 //         };
 //         return db.collection('orders').insertOne(order);
-//     })
-//     .then(result => {
-//       this.cart = {items: []};
-//       return db
-//         .collection('users')
-//         .updateOne(
-//         { _id: new ObjectId(this._id) },
-//         { $set: { cart: {items: []} } }
-//       );
-//     });
+//       })
+//       .then(result => {
+//         this.cart = { items: [] };
+//         return db
+//           .collection('users')
+//           .updateOne(
+//             { _id: new ObjectId(this._id) },
+//             { $set: { cart: { items: [] } } }
+//           );
+//       });
 //   }
 
 //   getOrders() {
 //     const db = getDb();
 //     return db
 //       .collection('orders')
-//       .find({'user._id': new ObjectId(this._id)})
+//       .find({ 'user._id': new ObjectId(this._id) })
 //       .toArray();
 //   }
 
-//   static findByPk(userId) {
+//   static findById(userId) {
 //     const db = getDb();
 //     return db
 //       .collection('users')
