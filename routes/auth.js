@@ -53,13 +53,13 @@ router.post(
       .isAlphanumeric()
       .trim(),
     body('confirmPassword')
-    .trim()
+      .trim()
       .custom((value, { req }) => {
-      if (value !== req.body.password) {
-        throw new Error('Passwords have to match!');
-      }
-      return true;
-    })
+        if (value !== req.body.password) {
+          throw new Error('Passwords have to match!');
+        }
+        return true;
+      })
   ],
   authController.postSignup
 );
