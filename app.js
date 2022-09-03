@@ -64,6 +64,13 @@ app.use(
     store: store
   })
 );
+app.use((req, res, next) => {
+  if (req.url === "/create-order") {
+    next();
+  } else {
+    csrfProtection(req, res, next);
+  }
+});
 app.use(csrfProtection);
 app.use(flash());
 
