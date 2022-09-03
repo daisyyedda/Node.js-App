@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const fileHelper = require('../util/file');
 
 const { validationResult } = require('express-validator');
@@ -47,7 +48,6 @@ exports.postAddProduct = (req, res, next) => {
       hasError: true,
       product: {
         title: title,
-        imageUrl: imageUrl,
         price: price,
         description: description
       },
@@ -201,7 +201,7 @@ exports.postDeleteProduct = (req, res, next) => {
       }
       fileHelper.deleteFile(product.imageUrl);
       return Product.deleteOne({ _id: prodId, userId: req.user._id });
-    }) 
+    })
     .then(() => {
       console.log('DESTROYED PRODUCT');
       res.redirect('/admin/products');
