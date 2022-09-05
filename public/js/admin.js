@@ -10,14 +10,14 @@ const deleteProduct = btn => {
       'csrf-token': csrf
     }
   })
-  .then(result => {
-    return result.json();
-  })
-  .then(data => {
-    console.log(data);
-    productElement.parentNode.removeChild(productElement);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+    .then(result => {
+      return result.json();
+    })
+    .then(data => {
+      console.log(data);
+      productElement.parentNode.removeChild(productElement);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
